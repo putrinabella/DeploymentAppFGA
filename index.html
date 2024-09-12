@@ -4,86 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
-    <link rel="stylesheet" href="qunit.css">
+    <title>Form</title>
 </head>
 
 <body>
+    <h1>Form Login</h1>
 
-    <h1>Unit Test dengan QUnit</h1>
-
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-    <script src="qunit.js"></script>
-    <script src="script.js"></script>
-
-    <script>
-        QUnit.module('Hitungan', function () {
-            QUnit.test('Penjumlahan', function (assert) {
-                assert.equal(add(1, 1), 2, '1 + 1 Hasilnya adalah 2');
-                assert.equal(add(-1, 1), 0, '-1 + 1 Hasilnya adalah 0');
-            });
-            QUnit.test('Pengurangan', function (assert) {
-                assert.equal(subtract(2, 1), 1, '2 - 1 Hasilnya adalah 1');
-                assert.equal(subtract(0, 1), -1, '0 - 1 Hasilnya adalah -1');
-            });
-            QUnit.test('Perkalian', function (assert) {
-                assert.equal(multiply(2, 2), 4, '2 * 2 Hasilnya adalah 4');
-                assert.equal(multiply(-2, 3), -6, '-2 * 3 Hasilnya adalah -6');
-            });
-            QUnit.test('Pembagian', function (assert) {
-                assert.equal(divide(6, 3), 2, '6 / 3 Hasilnya adalah 2');
-                assert.throws(
-                    function () {
-                        divide(1, 0);
-                    },
-                    /Division by zero/,
-                    'Pembagian dengan 0 menghasilkan error'
-                );
-            });
-            QUnit.test('Modulo', function (assert) {
-                assert.equal(modulo(7, 3), 1, '7 % 3 Hasilnya adalah 1');
-                assert.throws(
-                    function () {
-                        modulo(1, 0);
-                    },
-                    /Division by zero/,
-                    'Modulo dengan 0 menghasilkan error'
-                );
-            });
-        });
-
-        QUnit.module('API', function () {
-            QUnit.test('Mengambil data API', function (assert) {
-                var done = assert.async();
-                getAPI('https://jsonplaceholder.typicode.com/posts/1', function (data) {
-                    assert.equal(data.userId, 1, 'UserId adalah 1');
-                    assert.equal(data.title, 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'title adalah sunt aut facere repellat provident occaecati excepturi optio reprehenderit');
-                    done();
-                });
-            });
-        });
-
-        QUnit.module('Function', function () {
-            QUnit.test('Check Function Nama', function (assert) {
-                assert.equal(isNameValid(''), false, 'Nama tidak boleh kosong!');
-                assert.equal(isNameValid('Putri'), true, 'Nama anda Putri.');
-            });
-        });
-
-        QUnit.module('DOM', function () {
-            QUnit.test('Tambah elemen di Div', function (assert) {
-                var done = assert.async();
-                var element = document.createElement('div');
-                element.id = "test";
-                document.body.appendChild(element);
-                assert.ok(document.getElementById('test'), 'Element dengan ID "test" berhasil ditambahkan ke DOM');
-                done();
-            });
-        });
-
-    </script>
-
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Input username anda" required>
+        </div>
+        <div class="form-group"></div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Input password anda" required>
+        </div>
+    </form>
 </body>
 
 </html>
